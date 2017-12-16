@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import kr.laptop.school.petitions.R;
 import kr.laptop.school.petitions.databinding.DialogArticleBinding;
+import kr.laptop.school.petitions.datas.Article;
 
 /**
  * Created by devkg on 2017-12-16.
@@ -24,21 +25,29 @@ import kr.laptop.school.petitions.databinding.DialogArticleBinding;
 public class ArticleDialog extends Dialog {
 
     private Context context;
+    private Article article;
     private DialogArticleBinding binding;
 
-    public ArticleDialog(Context context) {
+    public ArticleDialog(Context context, Article article) {
         super(context);
+
+        this.context = context;
+        this.article = article;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
         binding = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.dialog_article, null, false);
         setContentView(binding.getRoot());
         setDialogSize(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
 
+
+        binding.uiArticleCategory.setText(article.getCategory());
+        binding.uiArticleTitle.setText(article.getTitle());
+        binding.uiArticleDescription.setText(article.getContent());
     }
 
     private void setDialogSize(int width, int height) {

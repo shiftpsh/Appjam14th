@@ -28,12 +28,14 @@ import kr.laptop.school.petitions.databinding.FragmentArticlesBinding;
 import kr.laptop.school.petitions.datas.Article;
 import kr.laptop.school.petitions.datas.User;
 import kr.laptop.school.petitions.datas.adapters.ArticleAdapter;
+import kr.laptop.school.petitions.ui.dialogs.ArticleDialog;
+import kr.laptop.school.petitions.ui.listeners.RecyclerItemClickListener;
 
 public class ArticlesFragment extends Fragment {
     private static final String ARG_SORT = "sort";
     private String sort;
     private FragmentArticlesBinding binding;
-
+    private ArrayList<Article> sampleData;
 
     public ArticlesFragment() {
 
@@ -64,7 +66,7 @@ public class ArticlesFragment extends Fragment {
         FirebaseDatabase.getInstance().getReference().child("articles").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                ArrayList<Article> sampleData = new ArrayList<>();
+                sampleData = new ArrayList<>();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     sampleData.add(snapshot.getValue(Article.class));
                 }
@@ -78,22 +80,21 @@ public class ArticlesFragment extends Fragment {
         });
 
         // TODO onItemTouchListener
-        binding.uiArticleRecycler.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+        binding.uiArticleRecycler.addOnItemTouchListener(new RecyclerItemClickListener(
+                getActivity().getApplicationContext(), binding.uiArticleRecycler, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
-            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
-                return false;
+            public void onItemClick(View view, int position) {
+                if (sampleData != null) {
+                    ArticleDialog articleDialog = new ArticleDialog(getContext(), sampleData.get(position));
+                    articleDialog.show();
+                }
             }
 
             @Override
-            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+            public void onLongItemClick(View view, int position) {
 
             }
-
-            @Override
-            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-
-            }
-        });
+        }));
         return binding.getRoot();
     }
 
