@@ -60,6 +60,7 @@
                 </RadioGroup>
 
                 <Button
+                    style="@style/AppCompat.Button.Black"
                     android:id="@+id/submit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import kr.laptop.school.petitions.R;
@@ -44,7 +45,6 @@ public class ArticleDialog extends Dialog {
         setContentView(binding.getRoot());
         setDialogSize(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
 
-
         binding.uiArticleCategory.setText(article.getCategory());
         binding.uiArticleTitle.setText(article.getTitle());
         binding.uiArticleDescription.setText(article.getContent());
@@ -56,5 +56,11 @@ public class ArticleDialog extends Dialog {
         params.width = width;
         params.height = height;
         getWindow().setAttributes(params);
+    }
+
+    void addComment(String str) {
+        TextView t = new TextView(getContext());
+        t.setText(str + "\n");
+        binding.uiCommentList.addView(t);
     }
 }
