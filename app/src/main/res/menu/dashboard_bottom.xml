@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="대시보드"/>
-    <item android:title="관심사"/>
-    <item android:title="검색"/>
-    <item android:title="나의 활동"/>
+    <item android:title="대시보드"
+        android:icon="@drawable/ic_dashboard"/>
+    <item android:title="관심사"
+        android:icon="@drawable/ic_interest"/>
+    <item android:title="검색"
+        android:icon="@drawable/ic_search"/>
+    <item android:title="나의 활동"
+        android:icon="@drawable/ic_user"/>
 </menu>
