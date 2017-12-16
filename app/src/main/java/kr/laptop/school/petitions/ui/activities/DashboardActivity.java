@@ -5,13 +5,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v7.app.AppCompatActivity;
 
 import kr.laptop.school.petitions.R;
 import kr.laptop.school.petitions.databinding.ActivityDashboardBinding;
-import kr.laptop.school.petitions.ui.fragments.ArticlesFragment;
 import kr.laptop.school.petitions.ui.fragments.DashboardFragment;
 import kr.laptop.school.petitions.ui.fragments.InterestFragment;
 import kr.laptop.school.petitions.ui.fragments.SearchFragment;
@@ -32,8 +30,8 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
     private void initViewPager(ActivityDashboardBinding binding) {
-        // TODO make fragment pager adapter
-        binding.uiFragmentContainer.setAdapter(new ViewPagerAdapter(getSupportFragmentManager()));
+        binding.uiFragmentContainer.setAdapter(new DashboardViewPagerAdapter(getSupportFragmentManager()));
+        binding.uiFragmentContainer.setOffscreenPageLimit(4);
     }
 
     private void initBottomNavigations(ActivityDashboardBinding binding) {
@@ -71,10 +69,10 @@ public class DashboardActivity extends AppCompatActivity {
         });
     }
 
-    class ViewPagerAdapter extends FragmentStatePagerAdapter {
+    class DashboardViewPagerAdapter extends FragmentStatePagerAdapter {
         private String[] pageTitles = {"대시보드", "관심사", "검색", "나의 활동"};
 
-        public ViewPagerAdapter(FragmentManager fm) {
+        DashboardViewPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 

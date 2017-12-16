@@ -44,6 +44,7 @@ public class DashboardFragment extends Fragment {
         final FragmentDashboardBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_dashboard, null, false);
         final SortPagerAdapter sortPagerAdapter = new SortPagerAdapter(getFragmentManager());
         binding.sortPager.setAdapter(sortPagerAdapter);
+        binding.sortPager.setOffscreenPageLimit(3);
         binding.sortTabs.setupWithViewPager(binding.sortPager);
         return binding.getRoot();
     }
