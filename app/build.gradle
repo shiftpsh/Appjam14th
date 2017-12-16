@@ -3,9 +3,11 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+ext.build_tools_version = '27.0.2'
+
 android {
     compileSdkVersion 27
-    buildToolsVersion "27.0.2"
+    buildToolsVersion build_tools_version
     defaultConfig {
         applicationId "kr.laptop.school.petitions"
         minSdkVersion 19
@@ -37,7 +39,8 @@ dependencies {
     })
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     //noinspection GradleCompatible
-    compile 'com.android.support:appcompat-v7:27.0.2'
+    compile "com.android.support:appcompat-v7:$build_tools_version"
+    compile "com.android.support:design:$build_tools_version"
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
 }
