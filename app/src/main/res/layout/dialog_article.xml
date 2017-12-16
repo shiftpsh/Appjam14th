@@ -39,6 +39,7 @@
                 tools:text="2학년 6반 앞의 남자 화장실 왼쪽 끝에 있는 수도꼭지가 나오지 않습니다. 매일 점심시간에 화장실에서"/>
 
             <Button
+                android:id="@+id/ui_article_like_count"
                 style="@style/AppCompat.Button.Black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -20,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 import java.util.UUID;
 
@@ -28,6 +29,9 @@ import kr.laptop.school.petitions.databinding.FragmentArticlesBinding;
 import kr.laptop.school.petitions.datas.Article;
 import kr.laptop.school.petitions.datas.User;
 import kr.laptop.school.petitions.datas.adapters.ArticleAdapter;
+import kr.laptop.school.petitions.datas.comparators.ArticlesNewestComparator;
+import kr.laptop.school.petitions.datas.comparators.ArticlesOldestComparator;
+import kr.laptop.school.petitions.datas.comparators.ArticlesTrendingComparator;
 import kr.laptop.school.petitions.ui.dialogs.ArticleDialog;
 import kr.laptop.school.petitions.ui.listeners.RecyclerItemClickListener;
 
@@ -36,6 +40,8 @@ public class ArticlesFragment extends Fragment {
     private String sort;
     private FragmentArticlesBinding binding;
     private ArrayList<Article> sampleData;
+
+    // "지금 뜨는", "최근 올라온", "마감 임박"
 
     public ArticlesFragment() {
 
@@ -69,6 +75,18 @@ public class ArticlesFragment extends Fragment {
                 sampleData = new ArrayList<>();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     sampleData.add(snapshot.getValue(Article.class));
+                }
+
+                switch (sort) {
+                    case "지금 뜨는":
+                        Collections.sort(sampleData, new ArticlesTrendingComparator());
+                        break;
+                    case "최근 올라온":
+                        Collections.sort(sampleData, new ArticlesNewestComparator());
+                        break;
+                    case "마감 임박":
+                        Collections.sort(sampleData, new ArticlesOldestComparator());
+                        break;
                 }
                 binding.uiArticleRecycler.setAdapter(new ArticleAdapter(sampleData));
             }
