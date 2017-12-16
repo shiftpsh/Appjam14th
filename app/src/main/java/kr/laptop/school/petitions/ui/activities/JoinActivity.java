@@ -40,8 +40,9 @@ public class JoinActivity extends AppCompatActivity {
         binding.uiProgress.setVisibility(View.VISIBLE);
         final String email = binding.email.getText().toString();
         final String password = binding.password.getText().toString();
+        final String name = binding.name.getText().toString();
 
-        if (!VerifyUtil.verifyStrings(email, password)) {
+        if (!VerifyUtil.verifyStrings(email, name, password)) {
             Toast.makeText(JoinActivity.this, "모든 정보를 입력해주세요", Toast.LENGTH_SHORT).show();
             binding.uiProgress.setVisibility(View.INVISIBLE);
             return;
@@ -57,7 +58,7 @@ public class JoinActivity extends AppCompatActivity {
                     }
 
                     final FirebaseUser currentUser = mAuth.getCurrentUser();
-                    final User user = new User(currentUser.getUid(), email, password, System.currentTimeMillis());
+                    final User user = new User(currentUser.getUid(), email, name, System.currentTimeMillis());
                     database.child("users").child(currentUser.getUid()).setValue(user).addOnCompleteListener(joinTask -> {
                         if (!joinTask.isSuccessful()) {
                             Toast.makeText(JoinActivity.this, joinTask.getException().getLocalizedMessage(),

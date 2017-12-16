@@ -7,6 +7,7 @@
         <TextView
             android:layout_width="match_parent"
             android:textSize="26sp"
+            android:textStyle="bold"
             android:text ="주제를 선택해 주세요."
             android:textColor="@android:color/white"
             android:layout_height="wrap_content" />
@@ -19,12 +20,14 @@
             android:layout_height="wrap_content">
 
             <RadioGroup
+                android:id="@+id/options"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <RadioButton
-                    android:id="@+id/option1"
+                    android:checked="true"
+                    android:id="@+id/optionInternal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="교내 시설"
@@ -33,7 +36,7 @@
                     android:textStyle="bold" />
 
                 <RadioButton
-                    android:id="@+id/option2"
+                    android:id="@+id/optionRule"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="학칙 및 생활규정"
@@ -42,7 +45,7 @@
                     android:textStyle="bold" />
 
                 <RadioButton
-                    android:id="@+id/option3"
+                    android:id="@+id/optionStudy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="학습"
@@ -53,7 +56,7 @@
         </RelativeLayout>
 
         <Button
-            android:id="@+id/registerButton"
+            android:id="@+id/nextButton"
             style="@style/AppCompat.Button.White"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

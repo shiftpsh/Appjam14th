@@ -15,7 +15,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import kr.laptop.school.petitions.R;
+import kr.laptop.school.petitions.databinding.FragmentSelectCategoryBinding;
 import kr.laptop.school.petitions.databinding.ItemCategoryBinding;
+import kr.laptop.school.petitions.ui.activities.EnrollActivity;
+import kr.laptop.school.petitions.ui.activities.MainActivity;
 
 public class SelectCategoryFragment extends Fragment {
 
@@ -25,8 +28,20 @@ public class SelectCategoryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_select_category, container, false);
+        final FragmentSelectCategoryBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_select_category, container, false);
+        binding.nextButton.setOnClickListener(view -> {
+            switch (binding.options.getCheckedRadioButtonId()){
+                case R.id.optionInternal:
+                    ((EnrollActivity) getActivity()).update(SelectCategoryFragment.class, "internal");
+                    return;
+                case R.id.optionRule:
+                    return;
+                case R.id.optionStudy:
+                    ((EnrollActivity) getActivity()).update(SelectCategoryFragment.class, "study");
+                    return;
+            }
+        });
+        return binding.getRoot();
     }
 
 

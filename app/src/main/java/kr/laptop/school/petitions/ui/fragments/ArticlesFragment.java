@@ -12,11 +12,18 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.UUID;
 
 import kr.laptop.school.petitions.R;
 import kr.laptop.school.petitions.databinding.FragmentArticlesBinding;
 import kr.laptop.school.petitions.datas.Article;
+import kr.laptop.school.petitions.datas.User;
 import kr.laptop.school.petitions.datas.adapters.ArticleAdapter;
 
 public class ArticlesFragment extends Fragment {
@@ -29,13 +36,15 @@ public class ArticlesFragment extends Fragment {
     public ArticlesFragment() {
         //TODO remove sample data initialization
 
-        Article article = new Article();
-        article.setAuthor(null);
-        article.setCategory("교내 시설물");
-        article.setTitle("2학년 6반 앞의 남자 화장실 수도꼭지를 고쳐주세요.");
-        article.setContent("2학년 6반 앞의 남자 화장실 왼쪽 끝에 있는 수도꼭지가 나오지 않습니다. 매일 점심시간에 화장실에서");
-
         for (int i = 0; i < 20; i++) {
+            Article article = new Article(System.currentTimeMillis() + "-" + UUID.randomUUID().toString(),
+                    "bwSpYDDwgVMvqdo8ievEDbfs8a12",
+                    "2학년 6반 앞의 남자 화장실 수도꼭지를 고쳐주세요.",
+                    "\"2학년 6반 앞의 남자 화장실 왼쪽 끝에 있는 수도꼭지가 나오지 않습니다. 매일 점심시간에 화장실에서\"",
+                    "교내 시설물",
+                    System.currentTimeMillis(),
+                    null,
+                    40);
             sampleData.add(article);
         }
     }
