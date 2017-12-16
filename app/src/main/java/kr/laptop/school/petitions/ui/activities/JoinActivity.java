@@ -37,11 +37,13 @@ public class JoinActivity extends AppCompatActivity {
     }
 
     public void join() {
+        binding.uiProgress.setVisibility(View.VISIBLE);
         final String email = binding.email.getText().toString();
         final String password = binding.password.getText().toString();
 
         if (!VerifyUtil.verifyStrings(email, password)) {
             Toast.makeText(JoinActivity.this, "모든 정보를 입력해주세요", Toast.LENGTH_SHORT).show();
+            binding.uiProgress.setVisibility(View.INVISIBLE);
             return;
         }
 
@@ -50,6 +52,7 @@ public class JoinActivity extends AppCompatActivity {
                     if (!task.isSuccessful()) {
                         Toast.makeText(JoinActivity.this, task.getException().getLocalizedMessage(),
                                 Toast.LENGTH_SHORT).show();
+                        binding.uiProgress.setVisibility(View.INVISIBLE);
                         return;
                     }
 
@@ -59,6 +62,7 @@ public class JoinActivity extends AppCompatActivity {
                         if (!joinTask.isSuccessful()) {
                             Toast.makeText(JoinActivity.this, joinTask.getException().getLocalizedMessage(),
                                     Toast.LENGTH_SHORT).show();
+                            binding.uiProgress.setVisibility(View.INVISIBLE);
                             return;
                         }
                         currentUser.sendEmailVerification().addOnCompleteListener(verifyTask -> {

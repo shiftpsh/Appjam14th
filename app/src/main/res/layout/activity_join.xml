@@ -53,6 +53,14 @@
                 android:hint="이름"
                 android:inputType="textPersonName"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+            <ProgressBar
+                android:id="@+id/ui_progress"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:visibility="invisible"/>
         </LinearLayout>
 
         <Button

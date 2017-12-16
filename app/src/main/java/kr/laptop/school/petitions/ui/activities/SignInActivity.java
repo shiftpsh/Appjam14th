@@ -42,11 +42,13 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     public void signIn() {
+        binding.uiProgress.setVisibility(View.VISIBLE);
         final String email = binding.email.getText().toString();
         final String password = binding.password.getText().toString();
 
         if (!VerifyUtil.verifyStrings(email, password)) {
             Toast.makeText(SignInActivity.this, "모든 정보를 입력해주세요", Toast.LENGTH_LONG).show();
+            binding.uiProgress.setVisibility(View.INVISIBLE);
             return;
         }
 
@@ -55,6 +57,7 @@ public class SignInActivity extends AppCompatActivity {
                     if (!task.isSuccessful()) {
                         Toast.makeText(SignInActivity.this, task.getException().getLocalizedMessage(),
                                 Toast.LENGTH_SHORT).show();
+                        binding.uiProgress.setVisibility(View.INVISIBLE);
                         return;
                     }
                     startActivity(new Intent(SignInActivity.this, MainActivity.class));
