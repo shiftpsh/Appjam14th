@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Toast;
 
 
@@ -48,6 +49,10 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         };
+
+        binding.fab.setOnClickListener((View view) -> {
+            startActivity(new Intent(MainActivity.this, EnrollActivity.class));
+        });
 
         initViewPager();
         initBottomNavigations();

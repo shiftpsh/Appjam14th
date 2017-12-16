@@ -16,10 +16,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activities.SignInActivity"
-                  android:theme="@style/AppTheme.NoActionBar.Dark"/>
-        <activity android:name=".ui.activities.JoinActivity"
-                  android:theme="@style/AppTheme.NoActionBar.Dark"/>
+        <activity
+            android:name=".ui.activities.SignInActivity"
+            android:theme="@style/AppTheme.NoActionBar.Dark" />
+        <activity
+            android:name=".ui.activities.JoinActivity"
+            android:theme="@style/AppTheme.NoActionBar.Dark" />
+
+        <activity
+            android:name=".ui.activities.EnrollActivity"
+            android:theme="@style/AppTheme.NoActionBar.Dark" />
     </application>
 
 </manifest>
