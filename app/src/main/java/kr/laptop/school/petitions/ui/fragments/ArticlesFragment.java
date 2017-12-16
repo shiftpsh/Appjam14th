@@ -30,7 +30,7 @@ public class ArticlesFragment extends Fragment {
         //TODO remove sample data initialization
 
         Article article = new Article();
-        article.setAuthor("싶트");
+        article.setAuthor(null);
         article.setCategory("교내 시설물");
         article.setTitle("2학년 6반 앞의 남자 화장실 수도꼭지를 고쳐주세요.");
         article.setContent("2학년 6반 앞의 남자 화장실 왼쪽 끝에 있는 수도꼭지가 나오지 않습니다. 매일 점심시간에 화장실에서");

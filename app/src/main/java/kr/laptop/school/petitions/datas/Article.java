@@ -6,7 +6,7 @@ package kr.laptop.school.petitions.datas;
 
 public class Article {
     private String uuid;        // 게시글 uuid
-    private String author;      // 게시글 작성자
+    private User author;      // 게시글 작성자
 
     private String title;       // 게시물 제목
     private String content;     // 게시물 내용
@@ -24,11 +24,11 @@ public class Article {
         this.uuid = uuid;
     }
 
-    public String getAuthor() {
+    public User getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(User author) {
         this.author = author;
     }
 
