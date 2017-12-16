@@ -2,12 +2,20 @@ package kr.laptop.school.petitions.ui.activities;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v7.app.AppCompatActivity;
 
 import kr.laptop.school.petitions.R;
 import kr.laptop.school.petitions.databinding.ActivityDashboardBinding;
+import kr.laptop.school.petitions.ui.fragments.ArticlesFragment;
+import kr.laptop.school.petitions.ui.fragments.DashboardFragment;
+import kr.laptop.school.petitions.ui.fragments.InterestFragment;
+import kr.laptop.school.petitions.ui.fragments.SearchFragment;
+import kr.laptop.school.petitions.ui.fragments.UserFragment;
 
 public class DashboardActivity extends AppCompatActivity {
 
@@ -25,17 +33,7 @@ public class DashboardActivity extends AppCompatActivity {
 
     private void initViewPager(ActivityDashboardBinding binding) {
         // TODO make fragment pager adapter
-        binding.uiFragmentContainer.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
-            @Override
-            public Fragment getItem(int position) {
-                return null;
-            }
-
-            @Override
-            public int getCount() {
-                return 0;
-            }
-        });
+        binding.uiFragmentContainer.setAdapter(new ViewPagerAdapter(getSupportFragmentManager()));
     }
 
     private void initBottomNavigations(ActivityDashboardBinding binding) {
@@ -71,5 +69,39 @@ public class DashboardActivity extends AppCompatActivity {
                     break;
             }
         });
+    }
+
+    class ViewPagerAdapter extends FragmentStatePagerAdapter {
+        private String[] pageTitles = {"대시보드", "관심사", "검색", "나의 활동"};
+
+        public ViewPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            switch (position) {
+                case 0:
+                    return DashboardFragment.newInstance(pageTitles[position]);
+                case 1:
+                    return InterestFragment.newInstance(pageTitles[position]);
+                case 2:
+                    return SearchFragment.newInstance(pageTitles[position]);
+                case 3:
+                    return UserFragment.newInstance(pageTitles[position]);
+            }
+            return null;
+        }
+
+        @Override
+        public int getCount() {
+            return 4;
+        }
+
+        @Nullable
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return pageTitles[position];
+        }
     }
 }
