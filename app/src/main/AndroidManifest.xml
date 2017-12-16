@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.activities.SignInActivity" />
+        <activity android:name=".ui.activities.JoinActivity"></activity>
     </application>
 
 </manifest>
