@@ -32,12 +32,13 @@ public class SelectCategoryFragment extends Fragment {
         binding.nextButton.setOnClickListener(view -> {
             switch (binding.options.getCheckedRadioButtonId()){
                 case R.id.optionInternal:
-                    ((EnrollActivity) getActivity()).update(SelectCategoryFragment.class, "internal");
+                    ((EnrollActivity) getActivity()).update(SelectCategoryFragment.class, "교내 시설");
                     return;
                 case R.id.optionRule:
+                    ((EnrollActivity) getActivity()).update(SelectCategoryFragment.class, "학칙 및 생활규정");
                     return;
                 case R.id.optionStudy:
-                    ((EnrollActivity) getActivity()).update(SelectCategoryFragment.class, "study");
+                    ((EnrollActivity) getActivity()).update(SelectCategoryFragment.class, "학습");
                     return;
             }
         });

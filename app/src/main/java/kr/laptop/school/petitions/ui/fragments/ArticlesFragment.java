@@ -14,7 +14,10 @@ import android.view.ViewGroup;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -31,22 +34,9 @@ public class ArticlesFragment extends Fragment {
     private String sort;
     private FragmentArticlesBinding binding;
 
-    private ArrayList<Article> sampleData = new ArrayList<>();
 
     public ArticlesFragment() {
-        //TODO remove sample data initialization
 
-        for (int i = 0; i < 20; i++) {
-            Article article = new Article(System.currentTimeMillis() + "-" + UUID.randomUUID().toString(),
-                    "bwSpYDDwgVMvqdo8ievEDbfs8a12",
-                    "2학년 6반 앞의 남자 화장실 수도꼭지를 고쳐주세요.",
-                    "\"2학년 6반 앞의 남자 화장실 왼쪽 끝에 있는 수도꼭지가 나오지 않습니다. 매일 점심시간에 화장실에서\"",
-                    "교내 시설물",
-                    System.currentTimeMillis(),
-                    null,
-                    40);
-            sampleData.add(article);
-        }
     }
 
 
@@ -71,7 +61,21 @@ public class ArticlesFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_articles, null, false);
         binding.uiArticleRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
-        binding.uiArticleRecycler.setAdapter(new ArticleAdapter(sampleData));
+        FirebaseDatabase.getInstance().getReference().child("articles").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                ArrayList<Article> sampleData = new ArrayList<>();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    sampleData.add(snapshot.getValue(Article.class));
+                }
+                binding.uiArticleRecycler.setAdapter(new ArticleAdapter(sampleData));
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         // TODO onItemTouchListener
         binding.uiArticleRecycler.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
