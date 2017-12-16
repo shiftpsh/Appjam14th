@@ -11,12 +11,13 @@
             android:id="@+id/sortTabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
+            android:background="@color/tabBackground"
             android:minHeight="?attr/actionBarSize"
             app:tabGravity="fill"
             app:tabMode="fixed"
-            app:tabSelectedTextColor="@color/colorAccent"
-            app:tabTextColor="#FFF" />
+            app:tabIndicatorColor="@color/colorPrimary"
+            app:tabSelectedTextColor="@color/colorPrimary"
+            app:tabTextColor="@color/colorPrimary" />
 
         <android.support.v4.view.ViewPager
             android:id="@+id/sortPager"
