@@ -1,9 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-    <android.support.constraint.ConstraintLayout
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </android.support.constraint.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="32dp">
+
+            <TextView
+                android:id="@+id/ui_article_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                tools:text="교내 시설물"/>
+
+            <TextView
+                android:id="@+id/ui_article_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                tools:text="2학년 6반 앞의 남자 화장실 수도꼭지를 고쳐주세요."/>
+
+            <TextView
+                android:id="@+id/ui_article_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textSize="18sp"
+                tools:text="2학년 6반 앞의 남자 화장실 왼쪽 끝에 있는 수도꼭지가 나오지 않습니다. 매일 점심시간에 화장실에서"/>
+
+            <Button
+                style="@style/AppCompat.Button.Black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                tools:text="좋아요 62"/>
+        </LinearLayout>
+
+    </ScrollView>
 </layout>

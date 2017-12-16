@@ -42,7 +42,7 @@
     <style name="AppCompat.Button.Black" parent="Base.TextAppearance.AppCompat">
         <item name="android:background">@drawable/button_black</item>
         <item name="android:minHeight">64dp</item>
-        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColor">@color/colorAccent</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">20sp</item>
         <item name="android:textStyle">bold</item>

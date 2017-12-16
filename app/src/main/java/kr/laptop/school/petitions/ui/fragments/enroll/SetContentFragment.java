@@ -64,6 +64,7 @@ public class SetContentFragment extends Fragment {
 
         binding.nextButton.setOnClickListener(v -> {
             if (!VerifyUtil.verifyString(binding.content.getText().toString())) return;
+            binding.uiProgress.setVisibility(View.VISIBLE);
             ((EnrollActivity) getActivity()).update(SetContentFragment.class, binding.content.getText().toString());
         });
         return binding.getRoot();

@@ -39,19 +39,21 @@
                     android:id="@+id/optionRule"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:text="학칙 및 생활규정"
                     android:textColor="@android:color/white"
                     android:textSize="32sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"/>
 
                 <RadioButton
                     android:id="@+id/optionStudy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:text="학습"
                     android:textColor="@android:color/white"
                     android:textSize="32sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"/>
             </RadioGroup>
         </RelativeLayout>
 
