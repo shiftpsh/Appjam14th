@@ -73,8 +73,14 @@ public class ArticlesFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 sampleData = new ArrayList<>();
+                int i = 0;
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    sampleData.add(snapshot.getValue(Article.class));
+                    if (sort.equals("lol")) {
+                        if (i % 2 == 0) sampleData.add(snapshot.getValue(Article.class));
+                        i++;
+                    } else {
+                        sampleData.add(snapshot.getValue(Article.class));
+                    }
                 }
 
                 switch (sort) {

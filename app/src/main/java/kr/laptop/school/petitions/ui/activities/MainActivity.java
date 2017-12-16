@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import kr.laptop.school.petitions.R;
 import kr.laptop.school.petitions.databinding.ActivityMainBinding;
+import kr.laptop.school.petitions.ui.fragments.ArticlesFragment;
 import kr.laptop.school.petitions.ui.fragments.DashboardFragment;
 import kr.laptop.school.petitions.ui.fragments.InterestFragment;
 import kr.laptop.school.petitions.ui.fragments.SearchFragment;
@@ -114,8 +115,11 @@ public class MainActivity extends AppCompatActivity {
             switch (position) {
                 case 0:
                     return DashboardFragment.newInstance(pageTitles[position]);
+                    /*
                 case 1:
-                    return InterestFragment.newInstance(pageTitles[position]);
+                    return InterestFragment.newInstance(pageTitles[position]);*/
+                case 1:
+                    return ArticlesFragment.newInstance("lol");
                 case 2:
                     return SearchFragment.newInstance(pageTitles[position]);
                 case 3:
