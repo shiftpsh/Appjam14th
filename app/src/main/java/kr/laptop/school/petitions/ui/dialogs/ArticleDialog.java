@@ -9,15 +9,23 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import kr.laptop.school.petitions.R;
 import kr.laptop.school.petitions.databinding.DialogArticleBinding;
 import kr.laptop.school.petitions.datas.Article;
+import kr.laptop.school.petitions.datas.Comment;
 
 /**
  * Created by devkg on 2017-12-16.
@@ -45,10 +53,32 @@ public class ArticleDialog extends Dialog {
         setContentView(binding.getRoot());
         setDialogSize(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
 
+
+        Button uiArt = findViewById(R.id.ui_article_like_count);
         binding.uiArticleCategory.setText(article.getCategory());
         binding.uiArticleTitle.setText(article.getTitle());
         binding.uiArticleDescription.setText(article.getContent());
-        binding.uiArticleLikeCount.setText("좋아요 " + article.getCommentCount());
+        uiArt.setText("좋아요 " + article.getCommentCount());
+        uiArt.setOnClickListener((View view) -> {
+            CommentDialog commentDialog = new CommentDialog(context, article);
+            commentDialog.show();
+        });
+
+        FirebaseDatabase.getInstance().getReference().child("comments").child(article.getUuid())
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                            Comment comment = snapshot.getValue(Comment.class);
+                            addComment(comment.content);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
     }
 
     private void setDialogSize(int width, int height) {

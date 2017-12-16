@@ -75,15 +75,16 @@ public class CommentDialog extends Dialog {
             article.setCommentCount(article.getCommentCount() + 1);
             database.child("articles").child(article.getUuid()).setValue(article);
 
-            database.child("comments").child(comment.getUuid()).setValue(comment).addOnCompleteListener(new OnCompleteListener<Void>() {
+            database.child("comments").child(article.getUuid()).child(comment.getUuid()).setValue(comment).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()) {
                         Toast.makeText(context, "댓글 작성 완료", Toast.LENGTH_SHORT).show();
+                        CommentDialog.this.dismiss();
                         return;
                     }
+                    CommentDialog.this.dismiss();
                     Toast.makeText(context, "댓글작성 실패", Toast.LENGTH_LONG).show();
-
                 }
             });
 
