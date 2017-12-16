@@ -5,8 +5,11 @@
 
     <data>
         <variable
+            name="rank"
+            type="java.lang.String"/>
+        <variable
             name="article"
-            type="kr.laptop.school.petitions.datas.Article" />
+            type="kr.laptop.school.petitions.datas.Article"/>
     </data>
 
     <FrameLayout
@@ -31,26 +34,46 @@
                     android:id="@+id/ui_article_category"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="48dp"
                     android:text="@{article.category}"
                     android:textStyle="bold"
                     tools:text="교내 시설물"/>
 
-                <TextView
-                    android:id="@+id/ui_article_title"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:ellipsize="end"
-                    android:maxLines="2"
-                    android:text="@{article.title}"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textStyle="bold"
-                    tools:text="2학년 6반 앞의 남자 화장실 수도꼭지를 고쳐주세요."/>
+                    >
+
+                    <TextView
+                        android:id="@+id/ui_article_rank"
+                        android:layout_width="48dp"
+                        android:layout_height="match_parent"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:text="@{rank}"
+                        android:textStyle="bold"
+                        tools:text="#1"/>
+
+                    <TextView
+                        android:id="@+id/ui_article_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:text="@{article.title}"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textStyle="bold"
+                        tools:text="2학년 6반 앞의 남자 화장실 수도꼭지를 고쳐주세요."/>
+
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/ui_article_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="48dp"
                     android:layout_marginTop="4dp"
                     android:ellipsize="end"
                     android:maxLines="3"
