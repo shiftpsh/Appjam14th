@@ -88,6 +88,15 @@ public class ArticlesFragment extends Fragment {
                     }
                     binding.uiArticleRecycler.setAdapter(new ArticleAdapter(sampleData));
                 }
+        FirebaseDatabase.getInstance().getReference().child("articles").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                sampleData = new ArrayList<>();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    sampleData.add(snapshot.getValue(Article.class));
+                }
+                binding.uiArticleRecycler.setAdapter(new ArticleAdapter(sampleData));
+            }
 
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
@@ -98,22 +107,21 @@ public class ArticlesFragment extends Fragment {
 
 
         // TODO onItemTouchListener
-        binding.uiArticleRecycler.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+        binding.uiArticleRecycler.addOnItemTouchListener(new RecyclerItemClickListener(
+                getActivity().getApplicationContext(), binding.uiArticleRecycler, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
-            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
-                return false;
+            public void onItemClick(View view, int position) {
+                if (sampleData != null) {
+                    ArticleDialog articleDialog = new ArticleDialog(getContext(), sampleData.get(position));
+                    articleDialog.show();
+                }
             }
 
             @Override
-            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+            public void onLongItemClick(View view, int position) {
 
             }
-
-            @Override
-            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-
-            }
-        });
+        }));
         return binding.getRoot();
     }
 

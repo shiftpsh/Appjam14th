@@ -27,6 +27,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textSize="30sp"
                 android:textStyle="bold"
+                android:textColor="@android:color/black"
                 tools:text="2학년 6반 앞의 남자 화장실 수도꼭지를 고쳐주세요."/>
 
             <TextView
@@ -41,7 +42,7 @@
                 style="@style/AppCompat.Button.Black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="24dp"
                 tools:text="좋아요 62"/>
         </LinearLayout>
 

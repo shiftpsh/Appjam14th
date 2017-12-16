@@ -1,5 +1,6 @@
 package kr.laptop.school.petitions.datas.adapters;
 
+import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.support.v7.widget.RecyclerView;
@@ -53,4 +54,6 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.BindingH
     public int getItemCount() {
         return articles.size();
     }
+
+
 }
