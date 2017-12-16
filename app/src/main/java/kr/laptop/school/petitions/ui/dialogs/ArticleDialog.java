@@ -48,6 +48,7 @@ public class ArticleDialog extends Dialog {
         binding.uiArticleCategory.setText(article.getCategory());
         binding.uiArticleTitle.setText(article.getTitle());
         binding.uiArticleDescription.setText(article.getContent());
+        binding.uiArticleLikeCount.setText("좋아요 " + article.getCommentCount());
     }
 
     private void setDialogSize(int width, int height) {
