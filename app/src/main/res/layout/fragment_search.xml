@@ -1,99 +1,109 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@color/tabBackground"
-              tools:context="kr.laptop.school.petitions.ui.fragments.SearchFragment"
-              android:paddingBottom="?attr/actionBarSize"
-              android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context="kr.laptop.school.petitions.ui.fragments.SearchFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp">
-
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="올라온 안건들을 찾아보세요"/>
-
-        <ImageButton
-            style="@style/AppCompat.Button.Flat"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            app:srcCompat="@drawable/ic_search"/>
-    </LinearLayout>
-
-    <FrameLayout
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="32dp">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/ui_remove_history"
-                style="@style/AppCompat.Button.Flat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:drawableLeft="@drawable/ic_delete"
-                android:text="기록 삭제"/>
-        </LinearLayout>
+        android:background="@color/tabBackground"
+        android:orientation="vertical"
+        android:paddingBottom="?attr/actionBarSize">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="vertical">
+            android:layout_height="?attr/actionBarSize"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
 
-            <TextView
+            <EditText
+                android:id="@+id/query"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="최근 검색"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="32sp"
-                android:textStyle="bold"/>
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="올라온 안건들을 찾아보세요"/>
 
-            <TextView
+            <ImageButton
+                android:id="@+id/search"
+                style="@style/AppCompat.Button.Flat"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="example"
-                android:textSize="32sp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="example"
-                android:textSize="32sp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="example"
-                android:textSize="32sp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="example"
-                android:textSize="32sp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="example"
-                android:textSize="32sp"/>
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/ic_search"/>
         </LinearLayout>
-    </FrameLayout>
 
-</LinearLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="32dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/ui_remove_history"
+                    style="@style/AppCompat.Button.Flat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_delete"
+                    android:text="기록 삭제"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="최근 검색"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="32sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/search_recent_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="example"
+                    android:textSize="32sp"/>
+
+                <TextView
+                    android:id="@+id/search_recent_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="example"
+                    android:textSize="32sp"/>
+
+                <TextView
+                    android:id="@+id/search_recent_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="example"
+                    android:textSize="32sp"/>
+
+                <TextView
+                    android:id="@+id/search_recent_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="example"
+                    android:textSize="32sp"/>
+
+                <TextView
+                    android:id="@+id/search_recent_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="example"
+                    android:textSize="32sp"/>
+            </LinearLayout>
+        </FrameLayout>
+
+    </LinearLayout>
+
+</layout>
