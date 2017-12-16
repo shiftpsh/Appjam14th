@@ -10,6 +10,7 @@ public class Article {
 
     private String title;       // 게시물 제목
     private String content;     // 게시물 내용
+    private String category;    // 카테고리
 
     private Long openedDate;    // 게시일
     private Long closedDate;    // 종료일
@@ -46,6 +47,10 @@ public class Article {
     public void setContent(String content) {
         this.content = content;
     }
+
+    public String getCategory() { return category; }
+
+    public void setCategory(String category) { this.category = category; }
 
     public Long getOpenedDate() {
         return openedDate;

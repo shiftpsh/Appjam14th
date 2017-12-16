@@ -41,7 +41,7 @@ public class ArticlesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_articles, null, false);
-        if (!sort.isEmpty()) binding.desc.setText(sort);
+        // if (!sort.isEmpty()) binding.desc.setText(sort);
         return binding.getRoot();
     }
 

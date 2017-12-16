@@ -62,9 +62,9 @@ public class DashboardFragment extends Fragment {
 
     public class SortPagerAdapter extends FragmentStatePagerAdapter {
 
-        private String[] pageTitles = {"SORT1", "SORT2", "SORT3"};
+        private String[] pageTitles = {"지금 뜨는", "최근 올라온", "마감 임박"};
 
-        public SortPagerAdapter(FragmentManager fm) {
+        SortPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
