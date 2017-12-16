@@ -28,12 +28,14 @@ import kr.laptop.school.petitions.databinding.FragmentArticlesBinding;
 import kr.laptop.school.petitions.datas.Article;
 import kr.laptop.school.petitions.datas.User;
 import kr.laptop.school.petitions.datas.adapters.ArticleAdapter;
+import kr.laptop.school.petitions.ui.dialogs.ArticleDialog;
+import kr.laptop.school.petitions.ui.listeners.RecyclerItemClickListener;
 
 public class ArticlesFragment extends Fragment {
     private static final String ARG_SORT = "sort";
     private String sort;
     private FragmentArticlesBinding binding;
-
+    private ArrayList<Article> sampleData;
 
     public ArticlesFragment() {
 
@@ -61,33 +63,6 @@ public class ArticlesFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_articles, null, false);
         binding.uiArticleRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
-
-        if (sort.equals("지금 뜨는")) {
-            FirebaseDatabase.getInstance().getReference().child("articles").orderByChild("commentCount").limitToLast(20).addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    ArrayList<Article> sampleData = new ArrayList<>();
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        sampleData.add(snapshot.getValue(Article.class));
-                    }
-                    binding.uiArticleRecycler.setAdapter(new ArticleAdapter(sampleData));
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            });
-        } else {
-            FirebaseDatabase.getInstance().getReference().child("articles").addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    ArrayList<Article> sampleData = new ArrayList<>();
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        sampleData.add(snapshot.getValue(Article.class));
-                    }
-                    binding.uiArticleRecycler.setAdapter(new ArticleAdapter(sampleData));
-                }
         FirebaseDatabase.getInstance().getReference().child("articles").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -98,13 +73,11 @@ public class ArticlesFragment extends Fragment {
                 binding.uiArticleRecycler.setAdapter(new ArticleAdapter(sampleData));
             }
 
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
 
-                }
-            });
-        }
-
+            }
+        });
 
         // TODO onItemTouchListener
         binding.uiArticleRecycler.addOnItemTouchListener(new RecyclerItemClickListener(
