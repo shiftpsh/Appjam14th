@@ -63,15 +63,19 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.menu_bottom_dashboard:
                     binding.uiFragmentContainer.setCurrentItem(0, true);
+                    binding.fab.show();
                     return true;
                 case R.id.menu_bottom_interest:
                     binding.uiFragmentContainer.setCurrentItem(1, true);
+                    binding.fab.show();
                     return true;
                 case R.id.menu_bottom_search:
                     binding.uiFragmentContainer.setCurrentItem(2, true);
+                    binding.fab.hide();
                     return true;
                 case R.id.menu_bottom_user:
                     binding.uiFragmentContainer.setCurrentItem(3, true);
+                    binding.fab.hide();
                     return true;
             }
 

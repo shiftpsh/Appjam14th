@@ -8,4 +8,8 @@
     <color name="white">#FFFFFF</color>
     <color name="white_transparent">#80FFFFFF</color>
     <color name="tabBackground">#EEEEEE</color>
+
+    <color name="flat_pressed">#66999999</color>
+    <color name="flat_disabled_text">#40000000</color>
+    <color name="flat_normal_text">#000000</color>
 </resources>
