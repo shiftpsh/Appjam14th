@@ -19,6 +19,8 @@
             android:id="@+id/ui_bottom_nav"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:layout_anchor="@+id/ui_articles_container"
             app:itemBackground="@color/colorPrimary"
             app:itemIconTint="@color/white"
             app:itemTextColor="@color/white"
