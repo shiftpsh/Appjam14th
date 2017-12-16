@@ -1,49 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
             name="activity"
-            type="kr.laptop.school.petitions.ui.activities.JoinActivity" />
+            type="kr.laptop.school.petitions.ui.activities.JoinActivity"/>
     </data>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="32dp">
 
-        <EditText
-            android:id="@+id/email"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="이메일"
-            android:inputType="textEmailAddress"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="패스워드"
-            android:inputType="textPassword" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="48dp"
+                android:text="가입"
+                android:textColor="@color/white"
+                android:textSize="36sp"
+                android:textStyle="bold"/>
 
-        <EditText
-            android:id="@+id/name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="이름"
-            android:inputType="textPersonName" />
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="이메일"
+                android:inputType="textEmailAddress"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="패스워드"
+                android:inputType="textPassword"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="이름"
+                android:inputType="textPersonName"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+        </LinearLayout>
 
         <Button
             android:id="@+id/submitButton"
-            android:layout_width="wrap_content"
+            style="@style/AppCompat.Button.White"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="16dp"
             android:onClick="@{()->activity.join()}"
             android:text="가입"
             tools:layout_editor_absoluteX="148dp"
-            tools:layout_editor_absoluteY="396dp" />
+            tools:layout_editor_absoluteY="396dp"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 </layout>

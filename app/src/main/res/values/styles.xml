@@ -13,6 +13,13 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="AppTheme.NoActionBar.Dark" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorAccent">@color/white</item>
+    </style>
+
     <style name="AppTabLayout" parent="Widget.Design.TabLayout">
         <item name="android:minHeight">?attr/actionBarSize</item>
         <item name="android:background">@color/tabBackground</item>
@@ -28,6 +35,24 @@
 
     <style name="AppTabTextAppearance" parent="TextAppearance.Design.Tab">
         <item name="android:textColor">@android:color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AppCompat.Button.Black" parent="Base.TextAppearance.AppCompat">
+        <item name="android:background">@drawable/button_black</item>
+        <item name="android:minHeight">64dp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AppCompat.Button.White" parent="Base.TextAppearance.AppCompat">
+        <item name="android:background">@drawable/button_white</item>
+        <item name="android:minHeight">64dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
