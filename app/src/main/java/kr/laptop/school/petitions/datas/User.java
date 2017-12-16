@@ -10,6 +10,17 @@ public class User {
     private String name;        // 사용자 이름
     private Long joinedDate;      // 가입일
 
+    public User() {
+
+    }
+
+    public User(String uid, String email, String name, Long joinedDate) {
+        this.uid = uid;
+        this.email = email;
+        this.name = name;
+        this.joinedDate = joinedDate;
+    }
+
     public String getUid() {
         return uid;
     }
