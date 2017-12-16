@@ -15,7 +15,7 @@ import kr.laptop.school.petitions.ui.fragments.InterestFragment;
 import kr.laptop.school.petitions.ui.fragments.SearchFragment;
 import kr.laptop.school.petitions.ui.fragments.UserFragment;
 
-public class DashboardActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     private ActivityDashboardBinding binding;
 

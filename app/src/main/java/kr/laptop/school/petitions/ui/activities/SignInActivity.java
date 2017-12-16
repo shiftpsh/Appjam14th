@@ -40,7 +40,7 @@ public class SignInActivity extends AppCompatActivity {
 
         //databaseReference = FirebaseDatabase.getInstance().getReference();
         if (currentUser != null) {
-            Intent intent = new Intent(this, DashboardActivity.class);
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
             finish();
         }
