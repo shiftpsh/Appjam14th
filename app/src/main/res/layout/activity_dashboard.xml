@@ -7,7 +7,8 @@
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/ui_coordinator"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_insetEdge="bottom">
 
         <RelativeLayout
             android:id="@+id/ui_container"
@@ -30,7 +31,19 @@
             app:itemIconTint="@color/white"
             app:itemTextColor="@color/white"
             app:layout_behavior="kr.laptop.school.petitions.ui.behaviors.BottomNavigationBehavior"
+            app:layout_insetEdge="bottom"
             app:menu="@menu/dashboard_bottom"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_margin="@dimen/fab_margin"
+            app:srcCompat="@drawable/ic_add"
+            app:backgroundTint="@color/colorPrimary"
+            app:layout_anchor="@+id/ui_bottom_nav"
+            app:layout_anchorGravity="right"/>
 
     </android.support.design.widget.CoordinatorLayout>
 </layout>
