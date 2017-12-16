@@ -6,8 +6,8 @@ package kr.laptop.school.petitions.datas;
 
 public class Comment {
     public String uuid;         // 코멘트 uuid
-    public String articleId;
-    public User author;    // 코멘트 작성자 uid
+    public String articleId;    // 작성된 글 번호
+    public String author;       // 코멘트 작성자 uid
     public String content;      // 코멘트 내용
     public String type;         // 코멘트 타입
 
@@ -29,11 +29,11 @@ public class Comment {
         this.articleId = articleId;
     }
 
-    public User getAuthor() {
+    public String getAuthor() {
         return author;
     }
 
-    public void setAuthor(User author) {
+    public void setAuthor(String author) {
         this.author = author;
     }
 

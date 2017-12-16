@@ -10,14 +10,6 @@ import android.view.ViewGroup;
 
 import kr.laptop.school.petitions.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link InterestFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link InterestFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class InterestFragment extends Fragment {
 
     private String parameter;

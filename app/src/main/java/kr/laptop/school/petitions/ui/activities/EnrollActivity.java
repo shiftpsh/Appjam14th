@@ -47,6 +47,7 @@ public class EnrollActivity extends AppCompatActivity {
             }
         };
 
+        article.setCommentCount(0);
         article.setUuid(System.currentTimeMillis() + "-" + UUID.randomUUID().toString());
         article.setPeriod(40);
     }

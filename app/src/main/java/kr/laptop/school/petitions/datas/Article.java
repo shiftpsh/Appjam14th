@@ -12,6 +12,8 @@ public class Article {
     private String content;     // 게시물 내용
     private String category;    // 카테고리
 
+    private int commentCount;
+
     private Long openedDate;    // 게시일
     private Long closedDate;    // 종료일
     private int period;         // 게시기간
@@ -20,12 +22,13 @@ public class Article {
 
     }
 
-    public Article(String uuid, String author, String title, String content, String category, Long openedDate, Long closedDate, int period) {
+    public Article(String uuid, String author, String title, String content, String category, int commentCount, Long openedDate, Long closedDate, int period) {
         this.uuid = uuid;
         this.author = author;
         this.title = title;
         this.content = content;
         this.category = category;
+        this.commentCount = commentCount;
         this.openedDate = openedDate;
         this.closedDate = closedDate;
         this.period = period;
@@ -63,9 +66,21 @@ public class Article {
         this.content = content;
     }
 
-    public String getCategory() { return category; }
+    public String getCategory() {
+        return category;
+    }
 
-    public void setCategory(String category) { this.category = category; }
+    public int getCommentCount() {
+        return commentCount;
+    }
+
+    public void setCommentCount(int commentCount) {
+        this.commentCount = commentCount;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
 
     public Long getOpenedDate() {
         return openedDate;
