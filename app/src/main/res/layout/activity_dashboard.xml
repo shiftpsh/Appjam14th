@@ -22,7 +22,8 @@
             app:itemBackground="@color/colorPrimary"
             app:itemIconTint="@color/white"
             app:itemTextColor="@color/white"
-            app:menu="@menu/dashboard_bottom"/>
+            app:menu="@menu/dashboard_bottom"
+            app:layout_behavior="kr.laptop.school.petitions.ui.behaviors.BottomNavigationBehavior"/>
 
     </android.support.design.widget.CoordinatorLayout>
 </layout>
