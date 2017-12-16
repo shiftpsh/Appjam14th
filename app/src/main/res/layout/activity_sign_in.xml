@@ -4,10 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="kr.laptop.school.petitions.ui.activities.DashboardActivity">
+    tools:context="kr.laptop.school.petitions.SignInActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 </android.support.constraint.ConstraintLayout>
